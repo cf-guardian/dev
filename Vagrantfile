@@ -45,6 +45,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.synced_folder "~/go", "/vagrant_go"
   config.vm.synced_folder "./vagrant_setup", "/vagrant_setup"
+  config.vm.synced_folder "~/.ssh", "/vagrant_ssh"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.

@@ -5,3 +5,6 @@
 cd ~
 rm .profile
 ln -s /vagrant_setup/.profile
+
+cp /vagrant_ssh/*rsa ~/.ssh/.
+cp /vagrant_ssh/*rsa.pub ~/.ssh/.
