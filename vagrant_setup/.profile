@@ -16,4 +16,4 @@ if [ ! -d "$HOME/go" ] ; then
     ln -s /vagrant_go $HOME/go
 fi
 export PATH=$PATH:/usr/local/go/bin
-export GOPATH=$HOME/go
+export GOPATH=$HOME/go/src/github.com/docker/libcontainer/vendor:$HOME/go
