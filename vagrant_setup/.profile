@@ -11,9 +11,14 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-# Set up go
-if [ ! -d "$HOME/go" ] ; then
-    ln -s /vagrant_go $HOME/go
+export GOHOME=$HOME/go
+
+# Set up go home unless we already have one
+if [ ! -d "$GOHOME" ] ; then
+    ln -s /vagrant_go $GOHOME
 fi
+# access golang executables
 export PATH=$PATH:/usr/local/go/bin
-export GOPATH=$HOME/go/src/github.com/docker/libcontainer/vendor:$HOME/go
+
+# set (trivial) GOPATH
+export GOPATH=$GOHOME

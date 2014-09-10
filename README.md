@@ -5,8 +5,8 @@ Development environment setup for Cloud Foundry Guardian-backend project.
 
 The following procedure should get a development and test environment set up:
 
-1.  Obtain [VirtualBox](https://www.virtualbox.org/).
-2.  Obtain [vagrant](https://www.vagrantup.com/).
+1.  Obtain [VirtualBox](https://www.virtualbox.org/) (tested with 4.3.12).
+2.  Obtain [vagrant](https://www.vagrantup.com/) (tested with 1.6.5).
 3.  Enter the root of this repository (`cd`).
 4.  Execute `vagrant up`.
     This should give you a virtual box with no GUI front-end,
@@ -15,14 +15,20 @@ The following procedure should get a development and test environment set up:
 On first execution vagrant should build the first machine image (with
 increased RAM, multiple cpus and default hard drive), load an ubuntu image,
 populate this image with the latest system packages and include *Git*,
-*Mercurial*, and *Go* (version 1.3.1), copy ssh keys from the host, and link
-in `.profile` from the `vagrant_setup` folder.
+*Mercurial*, and *Go* (version 1.3.1).
 
-The `Vagrantfile` sets up most of this and includes shared folders to the
-hosts GOPATH and to the repository's `vagrant_setup` folder.
+By inserting a `config` file into the machine's `.ssh` directory we can
+redirect to include the host system's identities.
+
+We link to the `.profile` file in the `vagrant_setup` folder replacing any
+`.profile` that might already exist in the machine.
+
+The `Vagrantfile` sets up shared folders to `vagrant_setup`, `vagrant_go` and
+`vagrant_ssh` which point to `vagrant_setup`, `$GOHOME` and `~/.ssh` respectively.
+The links are created in `setup.sh`, and the environment variables are set in `.profile`.
 
 The `.profile` in `vagrant_setup` replaces the (default) one created by
-vagrant, and sets a link to `vagrant_go` in `~/go` (unless it's there already)
+vagrant, and sets a link to `vagrant_go` at `~/go` (unless it's there already)
 and sets up the required `GOPATH` variable.
 
 `vagrant provision` will re-issue the configuration steps starting at system

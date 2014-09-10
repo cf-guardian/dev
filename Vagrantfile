@@ -11,7 +11,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "ubuntu/trusty64"
-  config.vm.define "libcontainer_dev_machine" do |a|
+  config.vm.define "garden_dev_machine" do |a|
   end
 
   # Disable automatic box update checking. If you disable this, then
@@ -43,7 +43,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
 
-  config.vm.synced_folder "~/go", "/vagrant_go"
+  config.vm.synced_folder ENV['GOHOME'], "/vagrant_go"
   config.vm.synced_folder "./vagrant_setup", "/vagrant_setup"
   config.vm.synced_folder "~/.ssh", "/vagrant_ssh"
 
@@ -68,7 +68,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.gui = false
 
     # Name the VM.
-    vb.name = "libcontainer_dev"
+    vb.name = "garden_dev"
 
     # Need multiple CPUs.
     vb.cpus = 4
