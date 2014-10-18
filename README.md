@@ -8,7 +8,8 @@ The following procedure should get a development and test environment set up:
 1.  Obtain [VirtualBox](https://www.virtualbox.org/) (tested with 4.3.12).
 2.  Obtain [vagrant](https://www.vagrantup.com/) (tested with 1.6.5).
 3.  Enter the root of this repository (`cd`).
-4.  Execute `vagrant up`.
+4.  Set `$GOHOME` to point at your go directory (usually the first item in your `$GOPATH`).  
+5.  Execute `vagrant up`.
     This should give you a virtual box with no GUI front-end,
     into which you can `vagrant ssh` to perform all the go stuff you want.
 
