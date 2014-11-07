@@ -43,7 +43,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
 
-  config.vm.synced_folder ENV['GOHOME'], "/vagrant_go"
+  config.vm.synced_folder ENV['GOHOME']+"/src", "/vagrant_go_src"
+  config.vm.synced_folder ENV['GOHOME']+"/pkg", "/vagrant_go_pkg"
   config.vm.synced_folder "./vagrant_setup", "/vagrant_setup"
   config.vm.synced_folder "~/.ssh", "/vagrant_ssh"
 

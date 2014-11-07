@@ -11,14 +11,18 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+source $HOME/.functions
+
 export GOHOME=$HOME/go
 
 # Set up go home unless we already have one
 if [ ! -d "$GOHOME" ] ; then
-    ln -s /vagrant_go $GOHOME
+    mkdir -p $GOHOME/bin
+    ln -s /vagrant_go_src $GOHOME/src
+    ln -s /vagrant_go_pkg $GOHOME/pkg
 fi
-# access golang executables
-export PATH=$PATH:/usr/local/go/bin
+# access golang executables and user executables
+export PATH=$PATH:$GOHOME/bin:/usr/local/go/bin
 
 # set (trivial) GOPATH
 export GOPATH=$GOHOME
