@@ -19,9 +19,7 @@ populate this image with the latest system packages and include *Git*,
 *Mercurial*, and *Go* (version 1.3.1).
 
 By copying rsa keyfiles from the host's `.ssh` into the machine's `.ssh`
-directory we can include the host system's identities. The connection may
-request a password to log in (with `vagrant ssh`) in which case the password
-is `vagrant`.
+directory we can include the host system's identities.
 
 We link to the `.profile` file in the `vagrant_setup` folder replacing any
 `.profile` that might already exist in the machine.

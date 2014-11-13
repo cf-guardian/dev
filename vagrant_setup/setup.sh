@@ -12,7 +12,13 @@ ln -s /vagrant_setup/.profile
 ln -s /vagrant_setup/.functions
 
 # copy rsa key files to ~/.ssh, but not known_hosts and authorized_keys
+mkdir -p /tmp/ssh
+mv ~/.ssh/known_hosts /tmp/ssh/ 2>/dev/null || true
+mv ~/.ssh/authorized_keys /tmp/ssh 2>/dev/null || true
+
 cp /vagrant_ssh/* ~/.ssh/
 
 rm -f ~/.ssh/known_hosts
 rm -f ~/.ssh/authorized_keys
+
+mv /tmp/ssh/* ~/.ssh/ 2>/dev/null || true
