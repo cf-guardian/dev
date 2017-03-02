@@ -10,7 +10,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "ubuntu/trusty64"
-  config.vm.define "garden_dev_machine" do |a|
+  config.vm.define "go_dev_machine" do |a|
   end
 
   # Share an additional folders with the guest VM. The first argument is
@@ -45,7 +45,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.gui = false
 
     # Name the VM.
-    vb.name = "garden_dev"
+    vb.name = "go_dev"
 
     # Need multiple CPUs.
     vb.cpus = 4

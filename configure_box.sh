@@ -6,7 +6,7 @@ apt-get install -y git
 apt-get install -y mercurial
 
 # install go version 1.3.1
-curl -s -o /tmp/go.tgz https://storage.googleapis.com/golang/go1.3.1.linux-amd64.tar.gz
+curl -s -o /tmp/go.tgz https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz
 tar -C /usr/local -xzf /tmp/go.tgz
 rm /tmp/go.tgz
 
